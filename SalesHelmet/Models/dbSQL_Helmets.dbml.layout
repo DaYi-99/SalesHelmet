@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="dbSQL_Helmets">
+  <DataContextMoniker Name="/dbSQL_HelmetsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2a063147-476b-4214-b9cc-2c414944e6a3" absoluteBounds="1, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbSQL_HelmetsDataContext/CTDH" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ac257c6-075c-4812-b0d4-b1875390fefe" absoluteBounds="1.0150000000000001, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="34e00142-b4fa-4f88-916b-e5f8b2a92f65" absoluteBounds="1, 2.75, 2, 1.9631982421875">
+      <DataClassMoniker Name="/dbSQL_HelmetsDataContext/DONDATHANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="10facdb4-332b-49a5-a2af-e2d41f9db9b6" absoluteBounds="1.0150000000000006, 3.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2 : 2.75); (2 : 2.07859537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbSQL_HelmetsDataContext/DONDATHANG/DONDATHANG_CTDH" />
+      <nodes>
+        <classShapeMoniker Id="34e00142-b4fa-4f88-916b-e5f8b2a92f65" />
+        <classShapeMoniker Id="2a063147-476b-4214-b9cc-2c414944e6a3" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="48921485-2445-45ad-ad1a-77277ae3c219" absoluteBounds="3.375, 1.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/dbSQL_HelmetsDataContext/KHACHHANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cefc8e36-43d4-4126-8d46-aea405d80e3b" absoluteBounds="3.39, 1.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.375 : 3.29890055338542); (3 : 3.29890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbSQL_HelmetsDataContext/KHACHHANG/KHACHHANG_DONDATHANG" />
+      <nodes>
+        <classShapeMoniker Id="48921485-2445-45ad-ad1a-77277ae3c219" />
+        <classShapeMoniker Id="34e00142-b4fa-4f88-916b-e5f8b2a92f65" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2f3606a1-12d0-42e5-a119-22901ee6c69a" absoluteBounds="6, 3.375, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/dbSQL_HelmetsDataContext/MATHANG" />
+      <nestedChildShapes>
+        <elementListCompartment Id="90733e50-f19b-4b20-bb1d-f0256122ef88" absoluteBounds="6.015, 3.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5fbdd8ee-7545-4cd4-95f0-e2ceeecd6eb5" absoluteBounds="5.875, 0.5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/dbSQL_HelmetsDataContext/SANPHAM" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2ccae7e9-99cb-4bd9-9490-821c3a11d4d3" absoluteBounds="5.89, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.875 : 0.96875); (3 : 0.96875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbSQL_HelmetsDataContext/SANPHAM/SANPHAM_CTDH" />
+      <nodes>
+        <classShapeMoniker Id="5fbdd8ee-7545-4cd4-95f0-e2ceeecd6eb5" />
+        <classShapeMoniker Id="2a063147-476b-4214-b9cc-2c414944e6a3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.9375 : 3.375); (6.9375 : 3.0401025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/dbSQL_HelmetsDataContext/MATHANG/MATHANG_SANPHAM" />
+      <nodes>
+        <classShapeMoniker Id="2f3606a1-12d0-42e5-a119-22901ee6c69a" />
+        <classShapeMoniker Id="5fbdd8ee-7545-4cd4-95f0-e2ceeecd6eb5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="83cb4005-9b75-4170-9d06-7336fed17161" absoluteBounds="3.375, 4, 2, 1.3862939453125">
+      <DataClassMoniker Name="/dbSQL_HelmetsDataContext/ADMIN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f22eadb0-4c26-4b57-ae97-83df7215c063" absoluteBounds="3.3899999999999997, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,138 @@
+﻿
+@using SalesHelmet.Models
+@model List<Giohang>
+
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+
+
+@{
+    KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+}
+
+
+
+<div class="row container-fluid">
+    <!-- Thông tin khách hàng -->
+    <div class="col-md-7 ttkh">
+        <span style="margin-left:15px;font-size:16pt;font-weight:bold;">THÔNG TIN THANH TOÁN</span>
+        <span style="float:right "><a href="@Url.Action("User", "KhachHang")"><button>Đăng nhập</button></a></span>
+        @if (kh != null)
+        {
+            <form class="row g-3 container-fluid">
+                <div class="ml-2 mr-2">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="@kh.HoTen">
+                </div>
+                <div class="col-6">
+                    <input type="number" class="form-control" id="inputEmail" placeholder="Số điện thoại">
+                </div>
+                <div class="col-6">
+                    <input type="email" class="form-control" id="inputPassword" placeholder="Email">
+                </div>
+                <div class="col-6">
+                    <select class="form-select">
+                        <option>Tỉnh / Thành phố</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <select class="form-select">
+                        <option>Quận / Huyện</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <select class="form-select">
+                        <option>Phường / Xã</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Ví dụ: Số nhà, tên đường ...">
+                </div>
+                <div class="col-12">
+                    <textarea rows="5" cols="70" placeholder="Ghi chú thêm ..." class="p-2"></textarea>
+                </div>
+
+            </form>
+        }
+        else
+        {
+            <form class="row g-3 container-fluid">
+                <div class="ml-2 mr-2">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Họ tên của bạn">
+                </div>
+                <div class="col-6">
+                    <input type="number" class="form-control" id="inputEmail" placeholder="Số điện thoại">
+                </div>
+                <div class="col-6">
+                    <input type="email" class="form-control" id="inputPassword" placeholder="Email">
+                </div>
+                <div class="col-6">
+                    <select class="form-select">
+                        <option>Tỉnh / Thành phố</option>
+                        <option>Hồ Chí Minh</option>
+                        <option>Long An</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <select class="form-select">
+                        <option>Quận / Huyện</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <select class="form-select">
+                        <option>Phường / Xã</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Ví dụ: Số nhà, tên đường ...">
+                </div>
+                <div class="col-12">
+                    <textarea rows="5" cols="70" placeholder="Ghi chú thêm ..." class="p-2"></textarea>
+                </div>
+
+            </form>
+        }
+    </div>
+
+    <!-- Thông tin đơn hàng -->
+    <div class="col-md-4">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+        <form class="ttdh">
+            <p class="fs-4 fw-bold">ĐƠN HÀNG CỦA BẠN</p>
+            <div class="row">
+                <h6 class="col-6 text-danger">Your order</h6>
+                <h6 class="col-6 text-end">@DateTime.Now.ToShortDateString()</h6>
+            </div>
+
+            <div class="row">
+                <h4 class="col-6 fs-5">PRODUCT</h4>
+                <h4 class="col-6 fs-5 text-end">TOTAL</h4>
+                <hr />
+                @foreach (var item in Model)
+                {
+
+                    //using (Html.BeginForm("CapNhatSP", "GioHang", new { @imasp = item.iMaSP }))
+                    //{
+                    <h4 class="col-6 fs-6">@item.iTenSP</h4>
+                    <h4 class="col-6 fs-6 text-end">@String.Format("{0:0,0}", item.iThanhtien) đ</h4>
+
+                }
+                <hr />
+                <h4 class="col-6 fs-6">subtotal</h4>
+                <h4 class="col-6 fs-6 text-end">@String.Format("{0:0,0}", ViewBag.TongTien) đ</h4>
+                <p>Phí giao hàng <strong>30.000 <ins>đ</ins></strong></p>
+                <h4 class="col-6 fs-6">Tổng cộng</h4>
+                <h4 class="col-6 fs-6 text-end">@String.Format("{0:0,0}", ViewBag.Total) đ</h4>
+                <input type="submit" value="Dong y dat hang" />
+
+            </div>
+        </form>
+        }
+    </div>
+
+</div>
+

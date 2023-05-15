@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link rel="stylesheet" href="~/Assets/css/login_admin.css"/>
+</head>
+<body>
+    <div class="bg">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+        <div class="fr">
+            <h3>Login</h3>
+            <div class="form-group">
+                <input type="text" name="username" placeholder="Username..." /> @ViewData["Loi1"]
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password..." /> @ViewData["Loi2"]
+            </div>
+            
+
+            <div class="btn-login">
+                <p>@ViewBag.ThongBao</p>
+                    <button type="submit" class="btn-submit">Login</button>
+                    <button class="btn-back"><a href="@Url.Action("Index","Helmet")">BACK</a></button>
+                </div>
+        </div>
+        }
+    </div>
+</body>
+</html>

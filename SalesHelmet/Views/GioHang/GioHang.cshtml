@@ -1,0 +1,87 @@
+﻿
+
+@using SalesHelmet.Models
+@model List<Giohang>
+
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+    <div class="row container-fluid">
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th width="300px">SẢN PHẨM</th>
+                        <th width="100px" style="text-align:left">GIÁ</th>
+                        <th width="80px" style="text-align:center">SỐ LƯỢNG</th>
+                        <th width="100px" style="text-align:right">TỔNG</th>
+                    </tr>
+                </thead>
+            </table>
+            @foreach (var item in Model)
+            {
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td width="300px">
+                            <span>
+                                <button>X</button>
+                            </span>
+                            <img src="~/Assets/images/product/roc/@item.iAnhbia" width="80px" height="80px" />
+                            @item.iTenSP 
+                            </td>
+
+                            <td width="100px" style="text-align: left" class="align-middle"> <b>@String.Format("{0:0,0}", item.iDongia) đ</b></td>
+                            <td width="80px" style="text-align:center" class="align-middle">
+                                
+                                <label>
+                                    @item.iSoluong
+                                </label>
+                                
+                            </td>
+                            <td width="100px" style="text-align:right" class="align-middle"> <b>@String.Format("{0:0,0}", item.iThanhtien) đ</b> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+        <div>
+            <button class="btn-back">
+                TIẾP TỤC XEM SẢN PHẨM
+            </button>
+
+            <button class="btn-update">
+                CẬP NHẬT GIỎ HÀNG
+            </button>
+            <button class="btn-update">
+                @Html.ActionLink("XOÁ GIỎ HÀNG", "XoaGH")
+            </button>
+        </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="info">
+                <h4>Cộng Giỏ Hàng</h4>
+                <hr>
+                <span>Tạm tính</span> <span style="float: right;"><b>@String.Format("{0:0,0}", ViewBag.TongTien) đ</b></span>
+                <hr>
+                <span>Giao hàng</span>
+                <p style="margin-top: 10px;"><input type="radio" name="" id=""> Giao hàng miễn phí</p>
+                <p><input type="radio" name="" id=""> Phí giao thường: <b>30.000đ</b></p>
+                <hr>
+                <span>Tổng</span> <span style="float: right;"><b>@String.Format("{0:0,0}", ViewBag.TongTien) đ</b></span>
+                <hr>
+
+                @*<a href="@Html.Action("DatHang","GioHang")">*@
+                    @*<button class="btn-tt">TIẾN HÀNH THANH TOÁN</button>*@
+                @*</a>*@
+                @Html.ActionLink("Đặt Hàng","DatHang","GioHang")
+            </div>
+        </div>
+    </div>
+
+
+
+
